@@ -1,0 +1,87 @@
+.textbox{
+    --pText : 100px;
+    --pRight:20px;
+    padding-left: var(--pText);
+    padding-top: 80px;
+    padding-right: var(--pRight);
+    .titlemain{
+        @include text(40px, pb, $lh-text, $text-cl, uppercase);
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        &:before{
+            content: '';
+            width: 80px;
+            height: 2px;
+            background: #555555;
+            display: inline-block;
+            position: relative;
+            margin-left:-80px;
+            left: -20px;
+        }
+        &.--yellow{
+            color: $yellow-cl;
+        }
+        &.--white{
+            color: $white-cl;
+        }
+    }
+    .description{
+        padding: 14px 0 28px 0;
+        color:$gray-cl;
+        line-height: 24px;
+        &.--white{
+            color: $white-cl;;
+        }
+    }
+    &.--textright{
+        text-align: right;
+        padding-left: 0;
+        padding-right: var(--pText);
+        padding-left: var(--pRight);
+        .titlemain{
+            flex-direction: row-reverse;
+            &:before{
+                margin-left: initial;
+                left: initial;
+                margin-right:-80px;
+                right: -20px;
+            }
+        }
+    }
+    &.--textcenter{
+        max-width: 460px;
+        margin:auto;
+        padding-left: 0;
+        padding-top: 0px;
+        padding-right: 0;
+        text-align: center;
+        .titlemain{
+            flex-direction: column-reverse;
+            &:before{
+                width: 40px;
+                left: initial;
+                right: initial;
+                margin: 10px auto;
+                background: $yellow-cl;
+            }
+        }
+    }
+    @include tablet{
+        --pText : 0px;
+        --pRight:20px;
+        padding-left: var(--pText);
+        padding-top: 20px;
+        padding-right: var(--pRight);
+        .titlemain{
+            &:before{
+                display: none;
+            }
+        }
+    }
+    @include mobile{
+        .titlemain{
+            font-size: 34px;
+        }
+    }
+}

@@ -1,0 +1,96 @@
+a {
+    color: $text-cl;
+    text-decoration: none;
+    display: block;
+}
+img {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+}
+strong {
+    font-family: bb;
+}
+
+.-lv1 {
+    @include text(100px, b, 100px, $white-cl, none);
+    font-weight: normal;
+    margin: 0;
+    a {
+        @include text(100px, g, 100px, $white-cl, none);
+    }
+    @include tablet {
+    }
+    @include mobile {
+    }
+}
+
+.btnmain{
+    border:1px solid $white-cl;
+    padding:12px 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color:$white-cl;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    @include transition($t);
+    i{
+        display: block;
+        margin-left: 15px;
+        position: relative;
+        right:0;
+        @include transition($t);
+    }
+    .icon-play{
+        width: 20px;
+        margin-right: 10px;
+    }
+    &:hover{
+        background:$yellow-cl;
+        @include transition($t);
+        i{
+            margin-left: 22px;
+            right:-10px;
+            @include transition($t);
+        }
+    }
+    @include mobile{
+        padding:10px 20px;
+    }
+}
+
+.btnmore{
+    display: inline-flex;
+    font-family: pb;
+    font-size: 14px;
+    letter-spacing: 2px;
+    position: relative;
+    @include transition($t);
+    img{
+        margin-left: 10px;
+    }
+    &:before{
+        content: '';
+        width: 35px;
+        height: 2px;
+        background: $yellow-cl;
+        display: block;
+        position: absolute;
+        bottom: -5px;
+        left:0;
+        
+    }
+    img{
+        position: relative;
+        @include transform(translateX(0px));
+        @include transition($t);
+    }
+    &:hover{
+        img{
+            @include transform(translateX(10px));
+            @include transition($t);
+        }
+    }
+}
